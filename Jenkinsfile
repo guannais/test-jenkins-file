@@ -5,5 +5,6 @@ node() {
     echo "${ver_script}"
     POM_VERSION = sh(script: "${ver_script}", returnStdout: true)
     echo "${POM_VERSION}"
+	sh "ls -lR"
 }
 }
