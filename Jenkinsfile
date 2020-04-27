@@ -1,6 +1,6 @@
 node() {
     stage('Test 1:') {
-		def tmpDirPath = $workspace+"./repo/"
+		def tmpDirPath = "./repo/"
 
 
 		def tmpDir = new File(tmpDirPath)
