@@ -1,14 +1,10 @@
 node() {
     stage('Test 1:') {
-		def tmpDirPath = "./repo/"
 
-
-		def tmpDir = new File(tmpDirPath)
-
-def ret=SH(script: 'dir /s /b /a:D "'+tmpDir.absolutePath+'" 2>nul')
-ret.trim().tokenize('\r\n').each {
-	echo "File: "+it
-}
+	def ret=SH(script: sh label: '', script: 'find . -iname "*.tf" -not -path '*/\.*' | sed 's/\(.*\)\/.*/\1/' | grep -v "^.$" | sort | uniq')
+	ret.trim().tokenize('\r\n').each {
+		echo "File: "+it
+	}
 
     }
 }
