@@ -1,5 +1,5 @@
-node() {
-
+pipeline {
+    agent any
 	def dir_list = []
 
 	stage ('Clean WS'){
