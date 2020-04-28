@@ -10,7 +10,11 @@ node() {
 		echo "${ver_script}"
 		dirs = sh(script: "${ver_script}", returnStdout: true)
 		def dirs_list = dirs.split('\n')
-		dirs.each { item ->
+    	// for (int i = 0; i < list.size(); i++) {
+        // 	sh "echo Hello ${list[i]}"
+    	// }
+
+		dirs_list.each { item ->
         	echo "Hello ${item}"
     	}
 		// echo "${values}"
