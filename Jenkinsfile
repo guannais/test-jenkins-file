@@ -7,6 +7,6 @@ node() {
 		echo "${ver_script}"
 		POM_VERSION = sh(script: "${ver_script}", returnStdout: true)
 		println POM_VERSION.split('\n')
-		echo "${POM_VERSION}"
+		// echo "${POM_VERSION}"
 	}
 }
