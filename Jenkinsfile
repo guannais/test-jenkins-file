@@ -3,7 +3,7 @@ pipeline {
     // environment {
     //     FOLDER = terraformCommons.getFolderAndEnvironmentByProjectName()
     // }
-	def dir_list = []
+	//def dir_list = []
 
 stages {
 	stage ('Clean WS'){
