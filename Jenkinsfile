@@ -11,8 +11,8 @@ node() {
 		POM_VERSION = sh(script: "${ver_script}", returnStdout: true)
 		def values = POM_VERSION.split('\n')
 		echo "${values}"
-		echo ${values[0]}
-		echo ${values[1]}
+		echo "${values[0]}"
+		echo "${values[1]}"
 		// println POM_VERSION.split('\n')
 		// echo "${POM_VERSION}"
 	}
