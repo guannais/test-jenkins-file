@@ -1,4 +1,7 @@
 node() {
+	stage ('Clean WS'){
+		cleanWs()
+	}
 	stage ('SCM'){
 		checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'repo']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/guannais/test-jenkins-file.git']]])
 	}
