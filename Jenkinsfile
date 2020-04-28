@@ -8,12 +8,14 @@ node() {
     stage('Test 1:') {
 		def ver_script = $/eval "find ./repo -iname '*.tf' -not -path '*/\.*' | sed 's/\(.*\)\/.*/\1/' | grep -v '^.$' | sort | uniq"/$
 		echo "${ver_script}"
-		POM_VERSION = sh(script: "${ver_script}", returnStdout: true)
-		def values = POM_VERSION.split('\n')
-		echo "${values}"
-		echo "${values[0]}"
-		echo "${values[1]}"
-		// println POM_VERSION.split('\n')
-		// echo "${POM_VERSION}"
+		dirs = sh(script: "${ver_script}", returnStdout: true)
+		def dirs_list = dirs.split('\n')
+		dirs.each { item ->
+        	echo "Hello ${item}"
+    	}
+		// echo "${values}"
+		// echo "${values[0]}"
+		// echo "${values[1]}"
+
 	}
 }
