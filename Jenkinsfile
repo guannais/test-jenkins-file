@@ -1,7 +1,11 @@
 pipeline {
     agent any
+    // environment {
+    //     FOLDER = terraformCommons.getFolderAndEnvironmentByProjectName()
+    // }
 	def dir_list = []
 
+stages {
 	stage ('Clean WS'){
 		cleanWs()
 	}
@@ -18,5 +22,6 @@ pipeline {
 		dirs_list.each { item ->
         	echo "Hello ${item}"
     	}
+	}
 	}
 }
