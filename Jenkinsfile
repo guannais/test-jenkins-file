@@ -1,4 +1,7 @@
 node() {
+
+	def dir_list = []
+
 	stage ('Clean WS'){
 		cleanWs()
 	}
@@ -9,7 +12,7 @@ node() {
 		def ver_script = $/eval "find ./repo -iname '*.tf' -not -path '*/\.*' | sed 's/\(.*\)\/.*/\1/' | grep -v '^.$' | sort | uniq"/$
 		echo "${ver_script}"
 		dirs = sh(script: "${ver_script}", returnStdout: true)
-		def dirs_list = dirs.split('\n')
+		dirs_list = dirs.split('\n')
 	}
 	stage ('Print tf dirs:') {
 		dirs_list.each { item ->
