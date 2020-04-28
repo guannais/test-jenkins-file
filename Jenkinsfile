@@ -1,8 +1,8 @@
 pipeline {
     agent any
-    environment {
-         def dir_list = []
-    }
+    // environment {
+    //      def dir_list = []
+    // }
 	stages {
 		stage ('Clean WS'){
 			steps {
@@ -24,11 +24,15 @@ pipeline {
 				}
 			}
 		}
-	// stage ('Print tf dirs:') {
-	// 	dirs_list.each { item ->
-    //     	echo "Hello ${item}"
-    // 	}
-	// }
+		stage ('Print tf dirs:') {
+			steps {
+				script {
+					dirs_list.each { item ->
+						echo "Hello ${item}"
+					}
+				}
+			}
+		}
 	}
 }
 
