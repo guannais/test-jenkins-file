@@ -21,7 +21,7 @@ stages {
 			script {
 				// def ver_script = ${$/eval "find ./repo -iname '*.tf' -not -path '*/\.*' | sed 's/\(.*\)\/.*/\1/' | grep -v '^.$' | sort | uniq"/$}
 				// echo "${ver_script}"
-				def dirs = sh(sh label: '', script: 'find . -iname \'*.tf\' -not -path \'*/\\.*\' | sed \'s/\\(.*\\)\\/.*/\\1/\' | grep -v \'^.$\' | sort | uniq', returnStdout: true)
+				def dirs = sh(script: 'find . -iname \'*.tf\' -not -path \'*/\\.*\' | sed \'s/\\(.*\\)\\/.*/\\1/\' | grep -v \'^.$\' | sort | uniq', returnStdout: true)
 				dirs_list = dirs.split('\n')
 				echo ${dirs_list}
 			}
